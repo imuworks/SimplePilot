@@ -6,9 +6,7 @@ To understand how The Simple Pilot works visit this page:
 
 https://mozanunal.com/2017/02/multikopterler-icin-otopilot-yapmak/
 
-![](https://cloud.githubusercontent.com/assets/13440502/11090387/13c23d1c-887a-11e5-93fd-7ed0b2ac84db.png)
-
-# Autopilot for Multicopter
+# Autopilot for Multicopter (Copied from the above link)
 
 Hi friends,
 I would like to tell you about my experience on making autopilots which I spent a lot of time on in my previous article , but which I have spent a long time on. I would like to thank Bahadir Gokceaslan, who did all of these works before I started writing . 
@@ -24,6 +22,7 @@ So how are these IMU angles checked? As you all know, a quadcopter is a mechanis
 * Update IMU angles
 * Calculating the required engine speeds with pid-picking to achieve input values
 * Sending of telemetry data
+
 I'll focus on article 3 more in this article. Let's take control of an axis first. The procedure for checking a axis is as follows:
 
 ![](https://raw.githubusercontent.com/imuworks/SimplePilot/master/Documents/PID%20Structure.png)
@@ -38,6 +37,7 @@ I'll focus on article 3 more in this article. Let's take control of an axis firs
 * The sum of the angular velocity error in the past
 * Future angular error
 * Using the top 3, the pid output for that axis is calculated.
+
 In this way, it is necessary to apply a 2-pit pid operation to control an axis. So how to use a solution for 3 axes. I would like to add the following 4 lines of code here instead. (Assume that those starting with output_ are pid output related to the relevant axis.)
 
 ![](https://raw.githubusercontent.com/imuworks/SimplePilot/master/Documents/Formulas.png)
